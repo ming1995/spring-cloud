@@ -1,0 +1,41 @@
+server:
+  port: 8010
+
+spring:
+  application:
+    name: consumer     #用于指定到Eureka Server上的应用名称
+  cloud:
+    service-registry:
+      auto-registration:
+        enabled: true    #false关闭服务自动注册
+
+#actuator监听配置
+management:
+  security:
+    enabled: false #关掉安全认证
+  port: 8088 #管理端口调整成8088
+  context-path: /admin #actuator的访问路径
+endpoints:
+  shutdown:
+    enabled: true
+
+info:
+   app:
+      name: spring-boot-actuator
+      version: 1.0.0
+
+user:
+    server:
+        url: http://localhost:8000
+
+#添加注册
+#单节点和配置集群环境是一样，因为多个Eureka Server之间会数据会相互同步
+# defaultZone: http://localhost:8761/eureka/ #Eureka Server服务中心地址
+#集群环境
+eureka:
+  client:
+    serviceUrl:
+     #defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/  注册中心集群这样配置
+      defaultZone: http://ming:19951224@localhost:8761/eureka/ #Eureka Server服务中心地址
+  instance:
+    prefer-ip-address: true     #标识将自己的IP注册到Eureka Server,默认为false
