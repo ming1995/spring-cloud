@@ -7,6 +7,7 @@ consumer  服务消费者     	使用RestTemplate调用用户微服务的API
 
 eureka-server  服务注册中心      单节点		用于其它的微服务注册
 eureka-servers 服务注册中心	   多节点
+without-eureka	脱离注册中心使用robbon负载均衡
 java -jar      eureka.jar   --spring.profiles.active=peer2
 
 

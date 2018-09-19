@@ -1,10 +1,8 @@
-package com.ljm.cloud.consumer.controller;
+package com.ljm.cloud.withouteureka.controller;
 
-import com.ljm.cloud.consumer.pojo.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
@@ -35,11 +33,6 @@ public class ConsumerController {
     private DiscoveryClient discoveryClient;
 
 
-    @GetMapping("/user/{id}")
-    public User findById(@PathVariable Integer id){
-        return this.restTemplate.getForObject("http://user/user/"+id,User.class);
-        //return this.restTemplate.getForObject(url+"/user/"+id,User.class);
-    }
 
     @GetMapping("/user-instance")
     public List<ServiceInstance> showInfo(){

@@ -7,7 +7,7 @@ spring:
   cloud:
     service-registry:
       auto-registration:
-        enabled: true    #false关闭服务自动注册
+        enabled: false    #false关闭服务自动注册
 
 #actuator监听配置
 management:
@@ -23,10 +23,18 @@ info:
    app:
       name: spring-boot-actuator
       version: 1.0.0
-
+#不注册但使用robbon负载均衡
 user:
-    server:
-        url: http://localhost:8000
+  ribbon:
+    NFLoadBalancerRuleCLassName:  com.netflix.loadbalancer.RandomRule
+    listOfServers:  localhost:8001,localhost8000
+#为用户客户端负载均衡规则设置随机
+#user:
+#  ribbon:
+#    NFLoadBalancerRuleCLassName:  com.netflix.loadbalancer.RandomRule
+#对所有的客户端使用
+#ribbon:
+#  NFLoadBalancerRuleCLassName:  com.netflix.loadbalancer.RandomRule
 
 #添加注册
 #单节点和配置集群环境是一样，因为多个Eureka Server之间会数据会相互同步
@@ -39,3 +47,11 @@ eureka:
       defaultZone: http://ming:19951224@localhost:8761/eureka/ #Eureka Server服务中心地址
   instance:
     prefer-ip-address: true     #标识将自己的IP注册到Eureka Server,默认为false
+
+
+#饥饿加载, 指定名称的Ribbrn Client第一次请求时，对应的上下文才会加载，所以第一次比较慢
+#配置以下，服务将在启动的时候就会加载对应名称的客户端，重而提高速度
+#ribbon:
+#    eager-load:
+#      enabled: true
+#      clients: user
