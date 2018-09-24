@@ -1,0 +1,71 @@
+server:
+  port: 8040
+
+spring:
+  application:
+    name: zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://ming:19951224@localhost:8761/eureka/
+#关掉访问验证
+management:
+  security:
+    enabled: false
+#查看zuul转发的细节
+logging:
+  level:
+    com.netflix: DEBUG
+
+#设置hystrix超时时间和ribbon读取超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillseconds: 60000
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout:  60000
+
+zuul:
+  ribbon:
+    eager-load: #设置饥饿加载
+      enabled: true
+  force-original-query-string-encoding: true  #强制让编码一样
+  ribbon-isolation-strategy: thread           #设置隔离策略为线程
+  thread-pool:
+    use-separate-thread-pools: true          #HystruxThreadPoolKey将与路由的服务标示相同
+#设置query String 编码
+#忽略掉路径包含admin的路径
+#zuul:
+#  ignoredPatterns: /**/admin/**
+#  routes:
+#    user: /user/**
+
+#忽略指定微服务
+#zuul:
+#  ignored-services: user
+
+#忽略所有微服务，只能由路由器指定
+#zuul:
+#  ignored-services: '*'
+#  routes:
+#    feign: /feign/**
+
+#本地转发，匹配path-a的转发到path-b路径下
+#zuul:
+#  routes:
+#    route-name:
+#      path: /path-a/**
+#      url: forward:/path-b
+
+#敏感Header的设置
+#zuul:
+#  routes:
+#    sensitive-headers: Cookie,set-Cookie,Authorization
+##忽略Header
+#  ignored-headers: Header1
+#   ignoreSecurity-Headers: false

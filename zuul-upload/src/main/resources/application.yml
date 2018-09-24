@@ -1,0 +1,17 @@
+server:
+  port: 8050
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:  http://ming:19951224@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: zuul-upload
+  http:
+    multipart:
+      max-file-size: 2000Mb         #默认为1M
+      max-request-size: 2500Mb      #默认为10M

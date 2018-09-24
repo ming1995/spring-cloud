@@ -1,6 +1,14 @@
 server:
     port: 8000
 
+#权限管理
+#security:
+#  basic:
+#    enabled: true         #开启基于Http basic的认证
+#  user:
+#    name: ming            #配置登陆的账号是 user
+#    password: 19951224    #配置登陆的密码是 19951224    如果不设置这块内容账号是user
+
 spring:
   application:
     name: user     #用于指定到Eureka Server上的应用名称

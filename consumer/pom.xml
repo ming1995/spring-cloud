@@ -46,6 +46,7 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
             <version>1.4.0.RELEASE</version>
         </dependency>
+        
     </dependencies>
 
     <!--添加spring cloud 的依赖-->
