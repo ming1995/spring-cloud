@@ -1,0 +1,16 @@
+server:
+    port: 8031
+spring:
+    application:
+        name: turbine
+    rabbitmq:
+        host: localhost
+        port: 5672
+        username: guest
+        password: guest
+eureka:
+    client:
+        service-url:
+            defaultZone: http://ming:19951224@localhost:8761/eureka/ #Eureka Server地址
+    instance:
+        prefer-ip-address: true

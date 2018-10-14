@@ -1,0 +1,18 @@
+server:
+  port: 8010
+
+spring:
+  application:
+    name: without-eureka     #用于指定到Eureka Server上的应用名称
+
+
+
+info:
+   app:
+      name: spring-boot-actuator
+      version: 1.0.0
+#为用户客户端负载均衡规则设置随机
+user:
+  ribbon:
+     listOfServers: localhost:8000,localhost:8081
+

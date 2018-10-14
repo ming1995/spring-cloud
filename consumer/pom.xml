@@ -46,15 +46,17 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
             <version>1.4.0.RELEASE</version>
         </dependency>
+        
     </dependencies>
 
     <!--添加spring cloud 的依赖-->
     <dependencyManagement>
         <dependencies>
+            <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Edgware.RALEASe</version>
+                <version>Edgware.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

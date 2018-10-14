@@ -1,14 +1,24 @@
 项目文档
 
-user  服务提供者
-该用户服务用于办绑定数据库
+user  服务提供者   该用户服务用于办绑定数据库
 
 consumer  服务消费者     	使用RestTemplate调用用户微服务的API
 
 eureka-server  服务注册中心      单节点		用于其它的微服务注册
 eureka-servers 服务注册中心	   多节点
-java -jar      eureka.jar   --spring.profiles.active=peer2
+without-eureka 脱离注册中心使用robbon负载均衡
+feign		   声明式Rest,并整合了Ribbon和Eureka，自定义feign
+feign-build	   手动创建feign
+dashboard	   可视话监控数据
+turbine		   聚合监控数据
+turbine-mq	   集成了消息收集中间件
+zuul		   微服务网关
+zull-upload	   微服务网关上传文件
+sidecar		   微服务网关，集成非JVM微服务
 
+
+java -jar      eureka.jar   --spring.profiles.active=peer2
+java -jar      user.jar 	--server.port=8001
 
 配置服务中心集群需要修改本地  /etc/hosts
 127.0.0.1  peer1  peer2
