@@ -1,0 +1,30 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ming1995/spring-cloud-config      # 配置Git仓库的地址
+          username:                                                 # Git仓库的账号
+          password:                                                 # Git仓库的密码
+        health:                                                     # 配置健康中心
+          repositories:
+            ming1995:
+              label: master
+              name: user
+              profiles: dev
+#权限管理
+security:
+  basic:
+    enabled: true         #开启基于Http basic的认证
+  user:
+    name: ming            #配置登陆的账号是 user
+    password: 19951224    #配置登陆的密码是 19951224    如果不设置这块内容账号是user
+#添加注册
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://ming:19951224@localhost:8761/eureka/ #Eureka Server服务中心地址

@@ -1,15 +1,22 @@
 spring:
     application:
-      name: eurekas
+      name: eureka
 eureka:
     client:
         registerWithEureka: false     #表示是否将自己注册到Eureka Server，默认为true,由于当前应用是Eureka Server，所以设为false
         fetchRegistry: false
         serviceUrl:
-             defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/ #Eureka Server地址
+             defaultZone: http://ming:19951224@peer1:8761/eureka/,http://ming:19951224@peer2:8762/eureka/ #Eureka Server地址
     #关闭服务保护
-    #server:
-     # enable-self-preservation: false
+#    server:
+#      enable-self-preservation: false
+#权限管理
+security:
+  basic:
+    enabled: true         #开启基于Http basic的认证
+  user:
+    name: ming            #配置登陆的账号是 user
+    password: 19951224    #配置登陆的密码是 19951224    如果不设置这块内容账号是user
 
 ---
 

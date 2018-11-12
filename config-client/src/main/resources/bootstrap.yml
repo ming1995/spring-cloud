@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: user    # 对应config server所获取的配置文件的{application}
+  cloud:
+    config:
+      uri: http://localhost:8080/
+      profile: dev            # profile对应config server所获取的配置文件中的{profile} 
+      label: master           # 指定Git仓库的分支，对应config server所获取的配置文件的{label}
+      discovery:
+        enabled: true
+        service-id: config-server   #表示服务注册中心发现的config
+      username: ming
+      password: 19951224
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+#actuator监听配置
+management:
+  security:
+    enabled: false #关掉安全认证
+
+#添加注册
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://ming:19951224@localhost:8761/eureka/ #Eureka Server服务中心地址
+

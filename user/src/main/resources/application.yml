@@ -37,7 +37,8 @@ spring:
 eureka:
     client:
       serviceUrl:
-         defaultZone: http://localhost:8761/eureka/
+         #defaultZone: http://eureka-server:8761/eureka/   #mac环境
+         defaultZone: http://ming:19951224@peer1:8761/eureka/ #Eureka Server服务中心地址，携带认证的账号和密码
          #defaultZone: http://ming:19951224@localhost:8761/eureka/ #Eureka Server服务中心地址，携带认证的账号和密码
       healthcheck:
           enabled: true

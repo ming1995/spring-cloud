@@ -1,9 +1,7 @@
 项目文档
 
 user  服务提供者   该用户服务用于办绑定数据库
-
 consumer  服务消费者     	使用RestTemplate调用用户微服务的API
-
 eureka-server  服务注册中心      单节点		用于其它的微服务注册
 eureka-servers 服务注册中心	   多节点
 without-eureka 脱离注册中心使用robbon负载均衡
@@ -15,6 +13,11 @@ turbine-mq	   集成了消息收集中间件
 zuul		   微服务网关
 zull-upload	   微服务网关上传文件
 sidecar		   微服务网关，集成非JVM微服务
+config		   统一配置服务端
+config-client  配置客户端
+sleath		   微服务跟踪
+zipkin-rabbitmq分布式跟踪整合mq
+zipkin-server  zipkin服务端
 
 
 java -jar      eureka.jar   --spring.profiles.active=peer2

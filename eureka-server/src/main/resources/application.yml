@@ -15,8 +15,8 @@ eureka:
         registerWithEureka: false     #表示是否将自己注册到Eureka Server，默认为true,由于当前应用是Eureka Server，所以设为false
         fetchRegistry: false
         serviceUrl:
-             #defaultZone: http://localhost:8761/eureka/
-             defaultZone: http://ming:19951224@localhost:8761/eureka/ #Eureka Server地址
+             defaultZone: http://localhost:8761/eureka/
+             #defaultZone: http://ming:19951224@localhost:8761/eureka/ #Eureka Server地址
     #关闭服务保护
     #server:
      # enable-self-preservation: false

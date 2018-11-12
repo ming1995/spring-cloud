@@ -5,7 +5,7 @@
 
     <groupId>com.ljm.cloud</groupId>
     <artifactId>eureka-servers</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <packaging>jar</packaging>
 
     <name>eureka-server</name>
@@ -56,6 +56,26 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.13</version>
+                <configuration>
+                    <imageName>leejunming/${project.name}:${project.version}</imageName>
+                    <baseImage>java</baseImage>
+                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                    <!--docker宿主机的ip，要为dockerk开通tcp-->
+                    <dockerHost>http://10.211.55.8:2375</dockerHost>
+                    <forceTags>true</forceTags>
+                </configuration>
             </plugin>
         </plugins>
     </build>

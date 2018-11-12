@@ -1,0 +1,21 @@
+encrypt:
+  key-store:
+    location: server.jks
+    password: ming-password
+    alias: ming-alias
+    secret: ming-secret
+  #key:  1995    #对称加密秘钥  测试加密 ming     afa453955429253a6770068055c005a2ea1b7062f3de32170677f9b7d3f67055
+#spring:
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+#  cloud:
+#    bus:
+#      trace:
+#        enabled: true
+#actuator监听配置
+management:
+  security:
+    enabled: false #关掉安全认证

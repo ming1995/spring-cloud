@@ -1,0 +1,4 @@
+spring:
+  datasource:
+    username: ming
+    password: '{cipher}ce09acdb897124a5ab2636fbd83dc229073456093e62bd64090c8b30309bf28f'

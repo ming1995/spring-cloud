@@ -1,0 +1,27 @@
+server:
+  port: 9411
+zipkin:
+  storage:
+    type: elasticsearch
+    elasticsearch:
+      cluster: elasticsearch
+      hosts: http://localhost:9200
+      index: zipkin
+      index-shards: 5
+      index-replicas: 1
+  collector:
+    rabbitmq:
+      addresses: localhost:5672
+      password: guest
+      username: guest
+      queue: zipkin
+#spring:
+#  application:
+#    name: zip-server
+
+#eureka:
+#  client:
+#    serviceUrl:
+#      #defaultZone: http://localhost:8761/eureka/
+#      defaultZone: http://ming:19951224@localhost:8761/eureka/ #Eureka Server服务中心地址，携带认证的账号和密码
+
