@@ -16,6 +16,7 @@ spring:
               label: master
               name: user
               profiles: dev
+
 #权限管理
 security:
   basic:
@@ -28,3 +29,4 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://ming:19951224@localhost:8761/eureka/ #Eureka Server服务中心地址
+
